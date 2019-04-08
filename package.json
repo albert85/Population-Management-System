@@ -1,0 +1,80 @@
+{
+  "name": "SMS-Management-Application-API",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/albert85/SMS-Management-Application-API.git",
+  "author": "Olarewaju Temtope Albert <tmtpalbert@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "nodemon --exec babel-node ./server/src/index.js",
+    "build": "babel server/src --out-dir server/dist",
+    "start": "node server/dist/index.js",
+    "lint": "eslint server/src --fix",
+    "test": "cross-env NODE_ENV=test jest --no-cache --forceExit",
+    "coverage": "cat coverage/lcov.info | coveralls"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
+    "@babel/preset-env": "^7.4.2",
+    "@types/jest": "^24.0.11",
+    "babel-jest": "^24.7.1",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.3",
+    "coveralls": "^3.0.3",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.9.0",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "morgan": "^1.9.1",
+    "swagger-jsdoc": "^3.2.8",
+    "swagger-ui-express": "^4.0.2"
+  },
+  "devDependencies": {
+    "dotenv": "^7.0.0",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^24.5.0",
+    "nodemon": "^1.18.9",
+    "nyc": "^13.3.0",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html",
+      "lcov",
+      "text"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/coverage/"
+    ],
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!server/src/index.js",
+      "!**/node_modules/**",
+      "!**/coverage/"
+    ]
+  },
+  "nodemonConfig": {
+    "watch": [
+      "server"
+    ],
+    "ext": "js ts",
+    "ignore": [
+      "*.test.ts",
+      "*.test.js"
+    ],
+    "delay": "3",
+    "execMap": {
+      "ts": "ts-node"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "extends": "airbnb-base",
+  "settings": {
+    "import/resolver": {
+      "alias": [
+        [
+          "helper",
+          "./server/src/helper"
+        ],
+        [
+          "controller",
+          "./server/src/controller"
+        ],
+        [
+          "database",
+          "./server/src/database"
+        ],
+        [
+          "route",
+          "./server/src/route"
+        ]
+      ]
+    }
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "es6": true
+    }
+  },
+  "plugins": [
+    "import"
+  ],
+  "globals": {
+    "window": true,
+    "location": true,
+    "localStorage": true,
+    "expect": true,
+    "jest": true,
+    "document": true
+  },
+  "env": {
+    "node": true,
+    "es6": true,
+    "mocha": true,
+    "jquery": true
+  }
+}
