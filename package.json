@@ -10,9 +10,9 @@
     "build": "babel server/src --out-dir dist --copy-files",
     "start": "node dist/index.js",
     "lint": "eslint server/src --fix",
-    "test": "cross-env NODE_ENV=test yarn run db:migrate && jest --forceExit",
+    "test": "cross-env NODE_ENV=production yarn run db:migrate && jest --forceExit",
     "coverage": "cat coverage/lcov.info | coveralls",
-    "db:migrate": "sequelize --config ./server/src/config/config.json --migrations-path ./server/src/migrations db:migrate:undo:all && sequelize --config ./server/src/config/config.json --migrations-path ./server/src/migrations db:migrate"
+    "db:migrate": "node_modules/.bin/sequelize --config ./server/src/config/config.json --migrations-path ./server/src/migrations db:migrate:undo:all && sequelize --config ./server/src/config/config.json --migrations-path ./server/src/migrations db:migrate"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
@@ -37,6 +37,7 @@
     "pg": "^7.9.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^5.2.12",
+    "sequelize-cli": "^5.4.0",
     "swagger-jsdoc": "^3.2.8",
     "swagger-ui-express": "^4.0.2"
   },

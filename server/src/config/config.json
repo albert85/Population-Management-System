@@ -11,6 +11,7 @@
     "username": "postgres",
     "password": null,
     "database": "PMS_test",
+    "use_env_variable": "DATABASE_URL",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres"
