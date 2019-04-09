@@ -6,6 +6,8 @@ import path from 'path';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUiExpress from 'swagger-ui-express';
 
+import routes from 'routes'; //eslint-disable-line
+
 const app = express();
 
 //  Log request to console
@@ -45,12 +47,8 @@ app.get('/swagger.json', (req, res) => {
 
 app.use('/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(swaggerSpec));
 
-const router = express.Router();
-
-router.get('/get', (req, res) => res.send('Hi welcome to a worker server'));
-
 // import routes into application
-app.use(router);
+app.use('/api/v1', routes);
 
 const port = parseInt(process.env.PORT, 10) || 4000;
 app.set('port', port);

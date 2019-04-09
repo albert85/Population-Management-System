@@ -1,21 +1,30 @@
 {
-    "presets": [
-        "@babel/preset-env"
-      ],
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "env": {
+    "test": {
       "plugins": [
-        [
-          "module-resolver",
-          {
-            "root": [
-              "./server"
-            ],
-            "alias": {
-              "src": "./server/src",
-              "controller": "./server/src/controller",
-              "database": "./server/src/database",
-              "helper": "./server/src/helper"
-            }
-          }
-        ],
+        "@babel/plugin-transform-runtime"
       ]
+    }
+  },
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./server"
+        ],
+        "alias": {
+          "src": "./server/src",
+          "controllers": "./server/src/controllers",
+          "routes": "./server/src/routes",
+          "helpers": "./server/src/helpers",
+          "models": "./server/src/models",
+          "middlewares": "./server/src/middlewares"
+        }
+      }
+    ],
+  ]
 }
