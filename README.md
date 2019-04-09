@@ -3,17 +3,21 @@
 # Population-Management-System
 
 ##  Documentation
-
+API Documentatio  of this endpoint can be accessed using this link [![Run in Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/3143640/S1EL2fq4#ae8527a4-5f20-4b2f-b027-78e2260931ca)
 
 ## Technologies Used
 - Node/Expressjs
 - database: Postgresql
 
 ## Features
-- Link message to sender and receiver
-- create new contact
-- Delete contact and all messages they sent and received
-- List all contact and messages
+- Create a new state
+- List all available states
+- Updates a state
+- Delete a state and all associated city
+- Create a new city
+- List all available citys
+- Updates a city
+- Delete a city
 
 ## To Install
 - Download or clone the repo
