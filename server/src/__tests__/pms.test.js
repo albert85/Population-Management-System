@@ -67,6 +67,19 @@ describe('State endpoints', () => {
             done();
           });
       });
+      it('should return error when endpoints do not exist', (done) => {
+        request(app)
+          .get('/api/v1/pms/sdfsf')
+          .expect(404)
+          .end((err, res) => {
+            const { message, success } = res.body;
+
+            if (err) throw err;
+            expect(message).toEqual('That endpoint do not exist');
+            expect(success).toEqual(false);
+            done();
+          });
+      });
     });
 
     describe('/PUT state endpoints', () => {

@@ -12,4 +12,11 @@ router.route('/pms/city/:cityId')
   .put(validator.validateCityParams, cityController.updateACity)
   .delete(validator.validateCityParams, cityController.deleteACity);
 
+  router.use('*', (req, res) => {
+    return res.status(404).json({
+      success: false,
+      message: 'That endpoint do not exist',
+    });
+  });
+  
 export default router;
