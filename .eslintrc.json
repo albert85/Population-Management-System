@@ -4,20 +4,24 @@
     "import/resolver": {
       "alias": [
         [
-          "helper",
-          "./server/src/helper"
+          "helpers",
+          "./server/src/helpers"
         ],
         [
-          "controller",
-          "./server/src/controller"
+          "controllers",
+          "./server/src/controllers"
         ],
         [
-          "database",
-          "./server/src/database"
+          "routes",
+          "./server/src/routes"
         ],
         [
-          "route",
-          "./server/src/route"
+          "middlewares",
+          "./server/src/middlewares"
+        ],
+        [
+          "models",
+          "./server/src/models"
         ]
       ]
     }

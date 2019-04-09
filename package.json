@@ -7,19 +7,23 @@
   "license": "MIT",
   "scripts": {
     "start:dev": "nodemon --exec babel-node ./server/src/index.js",
-    "build": "babel server/src --out-dir server/dist",
-    "start": "node server/dist/index.js",
+    "build": "babel server/src --out-dir dist --copy-files",
+    "start": "node dist/index.js",
     "lint": "eslint server/src --fix",
-    "test": "cross-env NODE_ENV=test jest --no-cache --forceExit",
-    "coverage": "cat coverage/lcov.info | coveralls"
+    "test": "cross-env NODE_ENV=test yarn run db:migrate && jest --forceExit",
+    "coverage": "cat coverage/lcov.info | coveralls",
+    "db:migrate": "sequelize --config ./server/src/config/config.json --migrations-path ./server/src/migrations db:migrate:undo:all && sequelize --config ./server/src/config/config.json --migrations-path ./server/src/migrations db:migrate"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
     "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.4.2",
+    "@babel/runtime": "^7.4.3",
     "@types/jest": "^24.0.11",
+    "@types/sequelize": "^4.27.46",
     "babel-jest": "^24.7.1",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-preset-env": "^1.7.0",
@@ -30,6 +34,9 @@
     "express": "^4.16.4",
     "express-validator": "^5.3.1",
     "morgan": "^1.9.1",
+    "pg": "^7.9.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.2.12",
     "swagger-jsdoc": "^3.2.8",
     "swagger-ui-express": "^4.0.2"
   },
@@ -60,7 +67,9 @@
       "**/*.js",
       "!server/src/index.js",
       "!**/node_modules/**",
-      "!**/coverage/"
+      "!**/coverage/",
+      "!server/src/migrations/**",
+      "!server/src/models/index.js"
     ]
   },
   "nodemonConfig": {
