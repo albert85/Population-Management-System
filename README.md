@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/albert85/Population-Management-System.svg?branch=develop)](https://travis-ci.org/albert85/Population-Management-System)  
+[![Build Status](https://travis-ci.org/albert85/Population-Management-System.svg?branch=develop)](https://travis-ci.org/albert85/Population-Management-System)  [![Coverage Status](https://coveralls.io/repos/github/albert85/Population-Management-System/badge.svg?branch=create-location-endpoint)](https://coveralls.io/github/albert85/Population-Management-System?branch=create-location-endpoint)
 
 # Population-Management-System
 
